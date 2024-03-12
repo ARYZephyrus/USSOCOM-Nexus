@@ -18,6 +18,17 @@ function decreaseQuantity(button, index) {
     }
 }
 
+// FUNCTION TO READ LOCATION DESCRIPTION 
+function readLocationDescription() {
+    const description = locationDescription.textContent;
+    const speech = new SpeechSynthesisUtterance(description);
+    speech.volume = 1;
+    speech.rate = 2;
+    speech.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
 // ELEMENTS
 const teamSelect = document.getElementById('team-select');
 const locationSelect = document.getElementById('location-select');
@@ -59,11 +70,17 @@ function handleTeamChange() {
 function handleLocationChange() {
     const selectedLocation = locationSelect.value;
     if (selectedLocation === 'location1') {
+        window.speechSynthesis.cancel();
         setLocationDescription('31.617834°N, 65.735233°E | <strong>KANDAHAR, Afghanistan</strong><br><br><strong>Hassan Ahmad</strong>, an arms dealer, is bringing supplies to Al-Qaeda to an unknown location. POTUS does not want to risk the ammunition and equipment reaching its destination before we attack. <br><br><strong>Intercept the convoy</strong> near Kandahar. <em>Destroy all equipment</em> and <em>confirm the kill on Hassan</em>. <br><br>Intel suggests that there will be 2 APCs, 4 Supply Trucks, and 2 Technicals.');
+        readLocationDescription();
     } else if (selectedLocation === 'location2') {
+        window.speechSynthesis.cancel();
         setLocationDescription('34.566042°N, 69.212069°E | <strong>KABUL, Afghanistan</strong><br><br>A group of Taliban fighters hijacked one of our C-130s in <strong>Kabul Airport</strong>, they are holding hostage <strong>5 of our Air Force Civilian Personnel</strong>, we cannot trust the local SWAT Team for this, send operators. <br><br>Act fast, every second is critical. <br><br> Intel says that there are <strong>8 terrorists</strong> inside the aircraft.');
+        readLocationDescription();
     } else {
-        setLocationDescription('SELECT A LOCATION')        
+        window.speechSynthesis.cancel();
+        setLocationDescription('SELECT A LOCATION');
+        readLocationDescription();        
     }
     updateEquipment();
     updateEquipmentVisibility();
@@ -185,7 +202,7 @@ function proceed() {
         });
         
         if (success) {
-            alert('Operation On-going');
+            alert('Operation On-going... Wait 5 seconds.');
             setTimeout(function() {
                 alert('Operation Success!');
                 resetQuantities();

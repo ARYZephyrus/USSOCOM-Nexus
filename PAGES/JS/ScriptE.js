@@ -16,6 +16,16 @@ function decreaseQuantity(button, index) {
     }
 }
 
+function readLocationDescription() {
+    const description = locationDescription.textContent;
+    const speech = new SpeechSynthesisUtterance(description);
+    speech.volume = 1;
+    speech.rate = 2;
+    speech.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
 const teamSelect = document.getElementById('team-select');
 const locationSelect = document.getElementById('location-select');
 const teamLogo = document.getElementById('team-logo');
@@ -53,11 +63,17 @@ function handleTeamChange() {
 function handleLocationChange() {
     const selectedLocation = locationSelect.value;
     if (selectedLocation === 'location1') {
+        window.speechSynthesis.cancel();
         setLocationDescription('52.5736° N, 0.2429 ° W | <strong>PETERBOROUGH, United Kingdom</strong><br><br> There has been an attack of 2 suicide bombers at the <strong>Queens Gate Shopping centre</strong>, shortly after <strong>15+ armed men</strong>; who are believed to be from the terrorist organization ISIS, entered the building and held a few people hostage. <br><br> The <strong>entire mall is locked down</strong>, covering entrances and building fortifications for entry teams. <br><br> We have overseas operators and the UKSF conducting military exercises at RAF Lakenheath. <br><br> The attackers demand to withdraw U.S. Troops from Kuwait or they will detonate <strong>a bomb</strong> with a blast radius of 50km.');
+        readLocationDescription();
     } else if (selectedLocation === 'location2') {
+        window.speechSynthesis.cancel();
         setLocationDescription('48.871063°N 2.20257983°E | <strong>SURESNES, France</strong><br><br> <strong>10 men</strong> have seized control of a nearby Hospital in France. Equipped with <strong>high powered weapons and explosives</strong> the local police are overwhelmed. <br><br> The French SWAT are now staging and planning their course of action but they believe they could use the help of our <strong>operators stationed in Hexagone Balard</strong>. <br><br> We have at least <strong>6 operators on stand-by</strong>, waiting for orders. <br><br> Intel suggests that the most unexpected and safest entry is through the roof.');
+        readLocationDescription();
     } else {
-        setLocationDescription('SELECT A LOCATION')        
+        window.speechSynthesis.cancel();
+        setLocationDescription('SELECT A LOCATION');
+        readLocationDescription();       
     }
     updateEquipment();
     updateEquipmentVisibility();
@@ -163,7 +179,7 @@ function proceed() {
         });
         
         if (success) {
-            alert('Operation On-going');
+            alert('Operation On-going... Wait 5 seconds.');
             setTimeout(function() {
                 alert('Operation Success!');
                 resetQuantities();

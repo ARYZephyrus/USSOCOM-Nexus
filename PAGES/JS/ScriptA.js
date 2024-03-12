@@ -16,6 +16,16 @@ function decreaseQuantity(button, index) {
     }
 }
 
+function readLocationDescription() {
+    const description = locationDescription.textContent;
+    const speech = new SpeechSynthesisUtterance(description);
+    speech.volume = 1;
+    speech.rate = 2;
+    speech.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
 const teamSelect = document.getElementById('team-select');
 const locationSelect = document.getElementById('location-select');
 const teamLogo = document.getElementById('team-logo');
@@ -53,11 +63,17 @@ function handleTeamChange() {
 function handleLocationChange() {
     const selectedLocation = locationSelect.value;
     if (selectedLocation === 'location1') {
+        window.speechSynthesis.cancel();
         setLocationDescription('21.4467° N, 157.7844° W | <strong>KANEOHE BAY, Hawaii</strong><br><br> The United States Navy is celebrating their <strong>Founding Anniversary</strong>. They want to showcase the capabilities of each unit through a field demonstration at the <strong>Marine Corps Air Station</strong>. <br><br>The base commander wants units who are capable to do a <strong>HALO jump</strong> and execute mock operations on the grandstand.');
+        readLocationDescription();
     } else if (selectedLocation === 'location2') {
+        window.speechSynthesis.cancel();
         setLocationDescription('5.9950° N, 121.1490° E | <strong>SULU, Philippines</strong><br><br> The Philippine\'s Military Intelligence Division together with the FBI have located a possible hideout for <strong>Abdul Rahim</strong> a notorius bomb maker, an apprentice of the late Zulkifli Abdir alias "Marwan". <br><br> Philippine military is offering their <strong>1st Scout Ranger Regiment</strong> unit to aid with the operation. <br><br> Intel suggests that the <strong>land navigation</strong> will be challenging due to the thick jungles and steep terrains. Approximate hostile count in the area is <strong>50+ Abu Sayaff Fighters.</strong>');
+        readLocationDescription();
     } else {
-        setLocationDescription('SELECT A LOCATION')        
+        window.speechSynthesis.cancel();
+        setLocationDescription('SELECT A LOCATION');
+        readLocationDescription();        
     }
     updateEquipment();
     updateEquipmentVisibility();
@@ -161,7 +177,7 @@ function proceed() {
         });
         
         if (success) {
-            alert('Operation On-going');
+            alert('Operation On-going... Wait 5 seconds.');
             setTimeout(function() {
                 alert('Operation Success!');
                 resetQuantities();
