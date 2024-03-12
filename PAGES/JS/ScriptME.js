@@ -51,7 +51,7 @@ locationSelect.addEventListener('change', handleLocationChange);
 function handleTeamChange() {
     const selectedTeam = teamSelect.value;
     if (selectedTeam === 'team1') {
-        setTeamLogoAndName('PICTURES/DELTA.png', 'Delta Force');
+        setTeamLogoAndName('PICTURES/Delta.png', 'Delta Force');
     } else if (selectedTeam === 'team2') {
         setTeamLogoAndName('PICTURES/DEVGRU.png', 'SEAL Team 6 DEVGRU');
     } else if (selectedTeam === 'team3') {
