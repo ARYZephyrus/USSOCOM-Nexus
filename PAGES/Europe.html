@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EUCOM</title>
+  <link rel="stylesheet" href="CSS\DesignE.css">
+  <script src="JS/jquery-3.7.1.slim.js"></script>
+  <script src="JS/ScriptE.js" defer></script>
+</head>
+<body style="background-image: url('PICTURES/BG.png');">
+  <table>
+    <tr>
+      <td colspan="2">
+        <img src="PICTURES/EUCOM.png" alt="Command Logo">
+        <h1>UNITED STATES EUROPEAN COMMAND</h1>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div class="dropdown">
+          <!-- TEAMS -->
+          <select id="team-select">
+            <option value="team">TEAM</option>
+            <option value="team1">CIA Special Activities Divison</option>
+            <option value="team2">JOINT OP: SAS | DELTA</option>
+            <option value="team3">JOINT OP: GIGN | DELTA</option>
+          </select>
+          <!-- LOCATIONS -->
+          <select id="location-select">
+            <option value="location">LOCATION</option>
+            <option value="location1">United Kingdom</option>
+            <option value="location2">France</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td id="Logo_cell">
+        <img id="select-team-logo" src="PICTURES/JSOC.png" alt="Team Logo">
+        <img id="team-logo" src="PICTURES/Delta.png" alt="Team Logo">
+        <span id="team-name"></span>
+      </td>
+      <td id="description_cell">
+        <p id="location-description">SELECT A LOCATION</p>
+      </td>
+    </tr>
+    <!-- EQUIPMENT TABLE -->
+    <tr class="equipment-section">
+      <td style="background-color: black; color: white;" colspan="2">
+        <h2>EQUIPMENT</h2>
+      </td>
+    </tr>
+    <tr class="equipment-section">
+      <th>Quantity</th>
+      <th>Item</th> 
+    </tr>
+              <!-- Rifles -->
+      <tr class="equipment-section" id="HK416">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 0)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 0)">+</button>
+        </td>
+        <td>HK416 <br> <img src="PICTURES/M4.png" class="item-icon" alt="M4"></td>
+      </tr>
+      <!-- HK416 Suppressed -->
+      <tr class="equipment-section" id="HK416s">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 1)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 1)">+</button>
+        </td>
+        <td>HK416 Suppressed<br> <img src="PICTURES/M4s.png" class="item-icon" alt="M4s"></td>
+      </tr>
+      <!-- First Aid Kit -->
+      <tr class="equipment-section" id="FirstAid">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 2)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 2)">+</button>
+        </td>
+        <td>First Aid Kit <br> <img src="PICTURES/FirstAidKit.png" class="item-icon" alt="First Aid Kit"></td>
+      </tr>
+      <!-- Satchel Charge -->
+      <tr class="equipment-section" id="SatchelCharge">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 3)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 3)">+</button>
+        </td>
+        <td>Satchel Charge <br> <img src="PICTURES/SatchelCharge.png" class="item-icon" alt="Satchel Charge"></td>
+      </tr>
+      <!-- Parachute -->
+      <tr class="equipment-section" id="Parachute">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 4)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 4)">+</button>
+        </td>
+        <td>Parachute <br> <img src="PICTURES/Parachute.png" class="item-icon" alt="Parachute"></td>
+      </tr>
+      <!-- Flash Bang -->
+      <tr class="equipment-section" id="Flashbang">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 5)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 5)">+</button>
+        </td>
+        <td>Flashbang <br> <img src="PICTURES/Flashbang.png" class="item-icon" alt="Flashbang"></td>
+      </tr>
+      <!-- Frag Grenade -->
+      <tr class="equipment-section" id="Frag Grenade">
+        <td class="quantity-buttons">
+          <button onclick="decreaseQuantity(this, 6)">-</button>
+          <span>0</span>
+          <button onclick="increaseQuantity(this, 6)">+</button>
+        </td>
+        <td>Frag Grenade <br> <img src="PICTURES/FragGrenade.png" class="item-icon" alt="FragGrenade"></td>
+      </tr>
+      <tr id="proceed-button-container">
+        <td colspan="2" class="proceed-button" >
+          <button onclick="proceed()">PROCEED</button>
+        </td>
+      </tr>
+  </table>
+</body>
+</html>

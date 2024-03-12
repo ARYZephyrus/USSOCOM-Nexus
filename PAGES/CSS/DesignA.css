@@ -1,0 +1,109 @@
+
+body {
+    font-family: Arial, sans-serif; 
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 5px solid #808080; 
+    background-color: #DCDCDC; 
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    color: #000; 
+}
+
+th {
+    background-color: #9c0000;
+    color: #fff;
+}
+
+.dropdown select {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#Logo_cell {
+    width: 218px;
+    height: 218px;
+}
+
+#description_cell {
+    width: 500px;
+    height: 200px;
+    text-align: justify !important;
+}
+
+#team-logo {
+    width: 200px;
+    height: 200px;
+    display: none;
+}
+
+#location-description {
+    margin: 20px auto;
+}
+
+.quantity-buttons button {
+    padding: 5px 10px;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.proceed-button button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #00d30b;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.proceed-button {
+    display: none;
+}
+
+.item-icon {
+    margin-left: 10px;
+}
+
+.equipment-section {
+    display: none;
+    text-align: left;
+}
+
+tr h1, h2 {
+    color: #ffffff !important;
+    background-color: #000000;
+    padding: 20px;
+    margin: 0px;
+}
+
+#equipment-table tr {
+    display: none;
+}
+
+#team-name {
+    font-weight: bold;
+    text-transform: uppercase;
+}
