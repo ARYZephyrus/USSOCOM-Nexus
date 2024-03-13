@@ -1,19 +1,19 @@
 // INCREASE QUANTITY FUNCTION
 function increaseQuantity(button, index) {
-    var span = document.querySelectorAll('.quantity-buttons span')[index];
-    if (span) {
-        var quantity = parseInt(span.textContent);
-        span.textContent = quantity + 1;
+    var span = $('.quantity-buttons span').eq(index);
+    if (span.length > 0) {
+        var quantity = parseInt(span.text());
+        span.text(quantity + 1);
     }
 }
 
 // DECREASE QUANTITY FUNCTION
 function decreaseQuantity(button, index) {
-    var span = document.querySelectorAll('.quantity-buttons span')[index];
-    if (span) {
-        var quantity = parseInt(span.textContent);
+    var span = $('.quantity-buttons span').eq(index);
+    if (span.length > 0) {
+        var quantity = parseInt(span.text());
         if (quantity > 0) {
-            span.textContent = quantity - 1;
+            span.text(quantity - 1);
         }
     }
 }
@@ -51,7 +51,7 @@ locationSelect.addEventListener('change', handleLocationChange);
 function handleTeamChange() {
     const selectedTeam = teamSelect.value;
     if (selectedTeam === 'team1') {
-        setTeamLogoAndName('PICTURES/Delta.png', 'Delta Force');
+        setTeamLogoAndName('PICTURES/DELTA.png', 'Delta Force');
     } else if (selectedTeam === 'team2') {
         setTeamLogoAndName('PICTURES/DEVGRU.png', 'SEAL Team 6 DEVGRU');
     } else if (selectedTeam === 'team3') {

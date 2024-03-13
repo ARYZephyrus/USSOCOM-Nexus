@@ -1,17 +1,17 @@
 function increaseQuantity(button, index) {
-    var span = document.querySelectorAll('.quantity-buttons span')[index];
-    if (span) {
-        var quantity = parseInt(span.textContent);
-        span.textContent = quantity + 1;
+    var span = $('.quantity-buttons span').eq(index);
+    if (span.length > 0) {
+        var quantity = parseInt(span.text());
+        span.text(quantity + 1);
     }
 }
 
 function decreaseQuantity(button, index) {
-    var span = document.querySelectorAll('.quantity-buttons span')[index];
-    if (span) {
-        var quantity = parseInt(span.textContent);
+    var span = $('.quantity-buttons span').eq(index);
+    if (span.length > 0) {
+        var quantity = parseInt(span.text());
         if (quantity > 0) {
-            span.textContent = quantity - 1;
+            span.text(quantity - 1);
         }
     }
 }
